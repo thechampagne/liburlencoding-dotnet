@@ -7,7 +7,7 @@ Dotnet binding for **liburlencoding**.
 ### API
 
 ```csharp
-namespace URL
+namespace URLEncoding
 {
     public class Encoding
     {

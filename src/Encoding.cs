@@ -23,30 +23,18 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace URL
+namespace URLEncoding
 {
     public class Encoding
     {
 #if Linux
-#   if Shared
-        private const string LIB = "liburlencoding.so";
-#   else
-        private const string LIB = "liburlencoding.a";
-#   endif
+    private const string LIB = "liburlencoding.so";
 #elif Windows
-#   if Shared
-        private const string LIB = "liburlencoding.dll";
-#   else
-        private const string LIB = "liburlencoding.lib";
-#   endif
+    private const string LIB = "liburlencoding.dll";
 #elif OSX
-#   if Shared
-        private const string LIB = "liburlencoding.dylib";
-#   else
-        private const string LIB = "liburlencoding.a";
-#   endif
+    private const string LIB = "liburlencoding.dylib";
 #else
-        private const string LIB = "liburlencoding";
+    private const string LIB = "liburlencoding";
 #endif
         [DllImport (LIB)]
         private static extern IntPtr url_encoding_encode_binary(string data, long length);
@@ -66,7 +54,7 @@ namespace URL
         /// <example>
         /// Example:
         /// <code>
-        /// string? res = URL.Encoding.Encode("This string will be URL encoded.");
+        /// string? res = URLEncoding.Encoding.Encode("This string will be URL encoded.");
         /// Console.WriteLine(res);
         /// </code>
         /// </example>
@@ -90,7 +78,7 @@ namespace URL
         /// <example>
         /// Example:
         /// <code>
-        /// string? res = URL.Encoding.EncodeBinary("This string will be URL encoded.");
+        /// string? res = URLEncoding.Encoding.EncodeBinary("This string will be URL encoded.");
         /// Console.WriteLine(res);
         /// </code>
         /// </example>
@@ -114,7 +102,7 @@ namespace URL
         /// <example>
         /// Example:
         /// <code>
-        /// string? res = URL.Encoding.Decode("%F0%9F%91%BE%20Exterminate%21");
+        /// string? res = URLEncoding.Encoding.Decode("%F0%9F%91%BE%20Exterminate%21");
         /// Console.WriteLine(res);
         /// </code>
         /// </example>
@@ -138,7 +126,7 @@ namespace URL
         /// <example>
         /// Example:
         /// <code>
-        /// string? res = URL.Encoding.DecodeBinary("%F1%F2%F3%C0%C1%C2");
+        /// string? res = URLEncoding.Encoding.DecodeBinary("%F1%F2%F3%C0%C1%C2");
         /// Console.WriteLine(res);
         /// </code>
         /// </example>
